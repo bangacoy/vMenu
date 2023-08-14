@@ -40,6 +40,9 @@ namespace vMenuClient
         public static VehicleSpawner VehicleSpawnerMenu { get; private set; }
         public static PlayerAppearance PlayerAppearanceMenu { get; private set; }
         public static MpPedCustomization MpPedCustomizationMenu { get; private set; }
+        // Patched by dotexe for client-side time & weather
+        public static PlayerTimeWeatherOptions PlayerTimeWeatherOptionsMenu { get; private set; }
+        // Patched by dotexe for teleport locations
         public static TimeOptions TimeOptionsMenu { get; private set; }
         public static WeatherOptions WeatherOptionsMenu { get; private set; }
         public static WeaponOptions WeaponOptionsMenu { get; private set; }
