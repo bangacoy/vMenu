@@ -30,7 +30,7 @@ namespace vMenuClient
         /// </summary>
         private void CreateMenu()
         {
-            menu = new Menu("Time & Weather Options", "Time & Weather Options");
+            menu = new Menu(Game.Player.Name, "Time & Weather Options");
 
             clientSidedEnabled = new MenuCheckboxItem("Client-Sided Time & Weather", "Enable or disable client-sided time and weather changes.", false);
             menu.AddMenuItem(clientSidedEnabled);
