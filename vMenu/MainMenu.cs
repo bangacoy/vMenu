@@ -737,7 +737,16 @@ namespace vMenuClient
                 };
                 AddMenu(WorldSubmenu, menu, button);
             }
-
+            // Patched by dotexe for client-side time & weather
+            {
+                PlayerTimeWeatherOptionsMenu = new PlayerTimeWeatherOptions();
+                Menu menu2 = PlayerTimeWeatherOptionsMenu.GetMenu();
+                MenuItem button2 = new MenuItem("Time & Weather Options", "Change all time & weather related options here.")
+                {
+                    Label = "→→→"
+                };
+                AddMenu(Menu, menu2, button2);
+            }
             // Add the weapons menu.
             if (IsAllowed(Permission.WPMenu))
             {
