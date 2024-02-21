@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using System.Runtime.Remoting.Channels;
 using CitizenFX.Core;
 
 using MenuAPI;
@@ -26,6 +26,7 @@ namespace vMenuClient.menus
         public Menu VehicleDoorsMenu { get; private set; }
         public Menu VehicleWindowsMenu { get; private set; }
         public Menu VehicleComponentsMenu { get; private set; }
+        public Menu VehicleEngineSoundsMenu { get; private set; }
         public Menu VehicleLiveriesMenu { get; private set; }
         public Menu VehicleColorsMenu { get; private set; }
         public Menu DeleteConfirmMenu { get; private set; }
@@ -111,6 +112,10 @@ namespace vMenuClient.menus
             {
                 Label = "→→→"
             };
+            var engineSoundsMenuBtn = new MenuItem("Engine Sounds", "Change engine sounds for your car.")
+            {
+                Label = "→→→"
+            };            
             var liveriesMenuBtn = new MenuItem("Vehicle Liveries", "Style your vehicle with fancy liveries!")
             {
                 Label = "→→→"
@@ -214,6 +219,7 @@ namespace vMenuClient.menus
             VehicleDoorsMenu = new Menu("Vehicle Doors", "Vehicle Doors Management");
             VehicleWindowsMenu = new Menu("Vehicle Windows", "Vehicle Windows Management");
             VehicleComponentsMenu = new Menu("Vehicle Extras", "Vehicle Extras/Components");
+            VehicleEngineSoundsMenu = new Menu(" ", "Engine Sounds");
             VehicleLiveriesMenu = new Menu("Vehicle Liveries", "Vehicle Liveries");
             VehicleColorsMenu = new Menu("Vehicle Colors", "Vehicle Colors");
             DeleteConfirmMenu = new Menu("Confirm Action", "Delete Vehicle, Are You Sure?");
@@ -223,6 +229,7 @@ namespace vMenuClient.menus
             MenuController.AddSubmenu(menu, VehicleDoorsMenu);
             MenuController.AddSubmenu(menu, VehicleWindowsMenu);
             MenuController.AddSubmenu(menu, VehicleComponentsMenu);
+            MenuController.AddSubmenu(menu, VehicleEngineSoundsMenu);
             MenuController.AddSubmenu(menu, VehicleLiveriesMenu);
             MenuController.AddSubmenu(menu, VehicleColorsMenu);
             MenuController.AddSubmenu(menu, DeleteConfirmMenu);
@@ -460,6 +467,7 @@ namespace vMenuClient.menus
             MenuController.BindMenuItem(menu, VehicleDoorsMenu, doorsMenuBtn);
             MenuController.BindMenuItem(menu, VehicleWindowsMenu, windowsMenuBtn);
             MenuController.BindMenuItem(menu, VehicleComponentsMenu, componentsMenuBtn);
+            MenuController.BindMenuItem(menu, VehicleEngineSoundsMenu, engineSoundsMenuBtn);
             MenuController.BindMenuItem(menu, VehicleLiveriesMenu, liveriesMenuBtn);
             MenuController.BindMenuItem(menu, VehicleColorsMenu, colorsMenuBtn);
             MenuController.BindMenuItem(menu, DeleteConfirmMenu, deleteBtn);
@@ -965,7 +973,109 @@ namespace vMenuClient.menus
                 }
             };
             #endregion
+                
+            #region Vehicle Engine Sounds submenu stuff
+            List<String> vehs = new List<string>();
+            vehs.Add("2strkbeng");
+            vehs.Add("4age");
+            vehs.Add("a80ffeng");
+            vehs.Add("amg1eng");
+            vehs.Add("audirs4milltekeng");
+            vehs.Add("audr8tteng");
+            vehs.Add("bgw16");
+            vehs.Add("bmws1krreng");
+            vehs.Add("bnr34ffeng");
+            vehs.Add("c30a");
+            vehs.Add("camls3v8");
+            vehs.Add("chevydmaxeng");
+            vehs.Add("czr1eng");
+            vehs.Add("dghmieng");
+            vehs.Add("evorllyeng");
+            vehs.Add("f113");
+            vehs.Add("f136");
+            vehs.Add("f50gteng");
+            vehs.Add("fd3sid");
+            vehs.Add("fdvsffeng");
+            vehs.Add("frf119eng");
+            vehs.Add("honf1v6eng");
+            vehs.Add("lamavgineng");
+            vehs.Add("lamveneng");
+            vehs.Add("lg101timcamz28");
+            vehs.Add("lg102por992ts");
+            vehs.Add("lg114oldgalv10");
+            vehs.Add("lg115classicf1v10");
+            vehs.Add("lg116slsamg");
+            vehs.Add("lg123murcisp");
+            vehs.Add("lg124srt8thndrc");
+            vehs.Add("lg125mnsrybently");
+            vehs.Add("lg14c6vette");
+            vehs.Add("lg14c6vettena");
+            vehs.Add("lg157por911");
+            vehs.Add("lg15rx8ren");
+            vehs.Add("lg16a90mk5");
+            vehs.Add("lg187clkgtr");
+            vehs.Add("lg188maz20b");
+            vehs.Add("lg18bmwm4");
+            vehs.Add("lg21focusrs");
+            vehs.Add("lg28cst26b");
+            vehs.Add("lg29cst26btrb");
+            vehs.Add("lg30meramgtr");
+            vehs.Add("lg36r32skyid");
+            vehs.Add("lg41ttviperv10");
+            vehs.Add("lg42naviperv10");
+            vehs.Add("lg44nascarv8");
+            vehs.Add("lg48lexlfa");
+            vehs.Add("lg50ftypev8");
+            vehs.Add("lg51uruscapri");
+            vehs.Add("lg52musgt500v8");
+            vehs.Add("lg53fer488capri");
+            vehs.Add("lg54evoxtun");
+            vehs.Add("lg56hons2k");
+            vehs.Add("lg57mustangtv8");
+            vehs.Add("lg58mwm3gtrdemo");
+            vehs.Add("lg59hurv10");
+            vehs.Add("lg62chironpursport");
+            vehs.Add("lg67koagerars");
+            vehs.Add("lg68ls3vette");
+            vehs.Add("lg81hcredeye");
+            vehs.Add("lg86fer812sf");
+            vehs.Add("lg87skodar5rally");
+            vehs.Add("lg88camstang");
+            vehs.Add("lg91timreg");
+            vehs.Add("lg97lamctch");
+            vehs.Add("lgcy00vr6");
+            vehs.Add("lgcy01chargerv8");
+            vehs.Add("lgcy02b16ff");
+            vehs.Add("lgcy03nisl24");
+            vehs.Add("lgcy12ferf40");
+            vehs.Add("lgcyc00qbike700");
+            vehs.Add("mbnzc63eng");
+            vehs.Add("mcp1eng");
+            vehs.Add("ml720v8eng");
+            vehs.Add("mt09eng");
+            vehs.Add("mx5nasound");
+            vehs.Add("nisgtr35");
+            vehs.Add("nsr2teng");
+            vehs.Add("pgzonreng");
+            vehs.Add("rx7bpeng");
+            vehs.Add("srtvipeng");
+            vehs.Add("szkgsxryoshimuraeng");
+            vehs.Add("tjz1eng");
+            vehs.Add("wrxrllyeng");
+            vehs.Add("z33dkffeng");
+            vehs.Add("z33u2");
+            MenuListItem engineSoundsListItem = new MenuListItem("Engine Sounds", vehs, 0, "Select the vehicle engine sound.");
+            VehicleEngineSoundsMenu.AddMenuItem(engineSoundsListItem);
 
+            MenuItem engineSoundsButtonItem = new MenuItem("Apply", "Apply your engine sounds to the car.");
+            VehicleEngineSoundsMenu.AddMenuItem(engineSoundsButtonItem);
+
+            VehicleEngineSoundsMenu.OnItemSelect += (sender, item, index) => {
+                if(item == engineSoundsButtonItem)
+                    ForceVehicleEngineAudio(GetPlayersLastVehicle(), engineSoundsListItem.GetCurrentSelection());
+            };
+            #endregion
+                
             #region Vehicle Colors Submenu Stuff
             // primary menu
             var primaryColorsMenu = new Menu("Vehicle Colors", "Primary Colors");
