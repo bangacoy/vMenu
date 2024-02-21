@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Remoting.Channels;
+
 using CitizenFX.Core;
 
 using MenuAPI;
@@ -313,6 +313,10 @@ namespace vMenuClient.menus
                 menu.AddMenuItem(underglowMenuBtn);
                 MenuController.BindMenuItem(menu, VehicleUnderglowMenu, underglowMenuBtn);
             }
+            if(IsAllowed(Permission.VOEngineSounds))
+            {
+                menu.AddMenuItem(engineSoundsMenuBtn);
+            }            
             if (IsAllowed(Permission.VOLiveries)) // LIVERIES MENU
             {
                 menu.AddMenuItem(liveriesMenuBtn);
