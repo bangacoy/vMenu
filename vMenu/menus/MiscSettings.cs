@@ -35,8 +35,8 @@ namespace vMenuClient.menus
         public bool LockCameraX { get; private set; } = false;
         public bool LockCameraY { get; private set; } = false;
         public bool ShowLocationBlips { get; private set; } = UserDefaults.MiscLocationBlips;
-        public bool ShowPlayerBlips { get; private set; } = UserDefaults.MiscShowPlayerBlips;
-        public bool MiscShowOverheadNames { get; private set; } = UserDefaults.MiscShowOverheadNames;
+        public bool ShowPlayerBlips { get; private set; } = true;
+        public bool MiscShowOverheadNames { get; private set; } = true;
         public bool ShowVehicleModelDimensions { get; private set; } = false;
         public bool ShowPedModelDimensions { get; private set; } = false;
         public bool ShowPropModelDimensions { get; private set; } = false;
