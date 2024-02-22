@@ -219,7 +219,7 @@ namespace vMenuClient.menus
             VehicleDoorsMenu = new Menu("Vehicle Doors", "Vehicle Doors Management");
             VehicleWindowsMenu = new Menu("Vehicle Windows", "Vehicle Windows Management");
             VehicleComponentsMenu = new Menu("Vehicle Extras", "Vehicle Extras/Components");
-            VehicleEngineSoundsMenu = new Menu(" ", "Engine Sounds");
+            VehicleEngineSoundsMenu = new Menu("Engine Sounds", "Engine Sounds");
             VehicleLiveriesMenu = new Menu("Vehicle Liveries", "Vehicle Liveries");
             VehicleColorsMenu = new Menu("Vehicle Colors", "Vehicle Colors");
             DeleteConfirmMenu = new Menu("Confirm Action", "Delete Vehicle, Are You Sure?");
@@ -313,7 +313,7 @@ namespace vMenuClient.menus
                 menu.AddMenuItem(underglowMenuBtn);
                 MenuController.BindMenuItem(menu, VehicleUnderglowMenu, underglowMenuBtn);
             }
-            if(IsAllowed(Permission.VOEngineSounds))
+            if (IsAllowed(Permission.VOEngineSounds))
             {
                 menu.AddMenuItem(engineSoundsMenuBtn);
             }            
