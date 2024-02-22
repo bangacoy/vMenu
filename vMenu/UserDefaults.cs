@@ -415,7 +415,6 @@ namespace vMenuClient
                     "miscJoinQuitNotifications" or
                     "vehicleSpawnerSpawnInside" or
                     "vehicleSpawnerReplacePrevious" or
-                    "neverWanted" or
                     "voiceChatShowSpeaker" or
                     "voiceChatEnabled" or
                     "autoEquipParachuteWhenInPlane" or
@@ -427,7 +426,9 @@ namespace vMenuClient
                     "vehicleGodEngine" or
                     "vehicleGodVisual" or
                     "vehicleGodStrongWheels" or
-                    "vehicleGodRamp"
+                    "vehicleGodRamp" or
+                    "miscShowPlayerBlips" or
+                    "miscShowOverheadNames"
                     )
                 {
                     SetSavedSettingsBool(kvpString, true);
