@@ -429,6 +429,7 @@ namespace vMenuClient.menus
                         {
                             case "a_c_dolphin":
                             case "a_c_fish":
+                            case "a_c_stingray":
                             case "a_c_humpback":
                             case "a_c_killerwhale":
                             case "a_c_sharkhammer":
