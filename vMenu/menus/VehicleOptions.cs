@@ -986,15 +986,16 @@ namespace vMenuClient.menus
             vehs.Add("amg1eng");
             vehs.Add("audirs4milltekeng");
             vehs.Add("audr8tteng");
+            vehs.Add("aq57mit4g63t");
             vehs.Add("bgw16");
             vehs.Add("bmws1krreng");
             vehs.Add("bnr34ffeng");
             vehs.Add("c30a");
             vehs.Add("camls3v8");
             vehs.Add("chevydmaxeng");
+            vehs.Add("cummins5924v");            
             vehs.Add("czr1eng");
             vehs.Add("dghmieng");
-            vehs.Add("aq57mit4g63t");
             vehs.Add("f113");
             vehs.Add("f136");
             vehs.Add("f50gteng");
