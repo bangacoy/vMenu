@@ -230,14 +230,21 @@ namespace vMenuClient
         /// <returns></returns>
         private async Task WeatherSync()
         {
-            await UpdateWeatherParticles();
-            SetArtificialLightsState(IsBlackoutEnabled);
-            if (GetNextWeatherType() != GetHashKey(GetServerWeather))
+            if (MainMenu.PlayerTimeWeatherOptionsMenu != null)
             {
-                SetWeatherTypeOvertimePersist(GetServerWeather, (float)WeatherChangeTime);
-                await Delay((WeatherChangeTime * 1000) + 2000);
+                if (!MainMenu.PlayerTimeWeatherOptionsMenu.ClientWeatherTimeBool)
+                {
+                    await UpdateWeatherParticles();
+                    SetArtificialLightsState(IsBlackoutEnabled);
+                    SetArtificialLightsStateAffectsVehicles(false);
+                    if (GetNextWeatherType() != GetHashKey(GetServerWeather))
+                    {
+                        SetWeatherTypeOvertimePersist(GetServerWeather, (float)WeatherChangeTime);
+                        await Delay((WeatherChangeTime * 1000) + 2000);
 
-                TriggerEvent("vMenu:WeatherChangeComplete", GetServerWeather);
+                        TriggerEvent("vMenu:WeatherChangeComplete", GetServerWeather);
+                    }
+                }
             }
             await Delay(1000);
         }
@@ -248,14 +255,20 @@ namespace vMenuClient
         /// <returns></returns>
         private async Task TimeSync()
         {
-            NetworkOverrideClockTime(GetServerHours, GetServerMinutes, 0);
-            if (IsServerTimeFrozen || IsServerTimeSyncedWithMachineTime)
+            if (MainMenu.PlayerTimeWeatherOptionsMenu != null)            
             {
-                await Delay(5);
-            }
-            else
-            {
-                await Delay(MathUtil.Clamp(GetServerMinuteDuration, 100, 2000));
+                if (!MainMenu.PlayerTimeWeatherOptionsMenu.ClientWeatherTimeBool)
+                {
+                    NetworkOverrideClockTime(GetServerHours, GetServerMinutes, 0);
+                    if (IsServerTimeFrozen || IsServerTimeSyncedWithMachineTime)
+                    {
+                        await Delay(5);
+                    }
+                    else
+                    {
+                        await Delay(MathUtil.Clamp(GetServerMinuteDuration, 100, 2000));
+                    }
+                }
             }
         }
 
