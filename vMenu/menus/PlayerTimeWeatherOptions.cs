@@ -24,6 +24,8 @@ namespace vMenuClient
         public List<string> weatherListData = new List<string>() { "Clear", "Extrasunny", "Clouds", "Overcast", "Rain", "Clearing", "Thunder", "Smog", "Foggy", "Xmas", "Snowlight", "Blizzard", "Snow", "Halloween", "Neutral" };
         public MenuListItem weatherList;
 
+        public bool ClientWeatherTimeBool;
+        
         /// <summary>
         /// Creates the menu.
         /// </summary>
@@ -44,6 +46,15 @@ namespace vMenuClient
 
             weatherList = new MenuListItem("Change Weather", weatherListData, 0, "Select weather.");
             menu.AddMenuItem(weatherList);
+
+
+            menu.OnCheckboxChange += (_menu, _item, _index, _checked) => {
+                if (_item == clientSidedEnabled)
+                {
+                    //Debug.WriteLine($"{_checked}");
+                    ClientWeatherTimeBool = _checked;
+                }
+            };            
         }
 
         /// <summary>
