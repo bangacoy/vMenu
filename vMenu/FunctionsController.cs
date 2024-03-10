@@ -3224,7 +3224,6 @@ namespace vMenuClient
             if (MainMenu.PlayerTimeWeatherOptionsMenu != null && MainMenu.PlayerTimeWeatherOptionsMenu != null && MainMenu.PlayerTimeWeatherOptionsMenu.clientSidedEnabled.Checked)
             {
                 NetworkOverrideClockTime(MainMenu.PlayerTimeWeatherOptionsMenu.timeDataList.ListIndex, 0, 0);
-                PauseClock(MainMenu.PlayerTimeWeatherOptionsMenu.timeFrozen.Checked);
             }
         }        
         #endregion
