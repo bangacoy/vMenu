@@ -39,8 +39,8 @@ namespace vMenuClient.menus
             {
                 menu.AddMenuItem(spawnByName);
             }
-            menu.AddMenuItem(spawnInVeh);
-            menu.AddMenuItem(replacePrev);
+            //menu.AddMenuItem(spawnInVeh);
+            //menu.AddMenuItem(replacePrev);
             #endregion
 
             #region addon cars menu
