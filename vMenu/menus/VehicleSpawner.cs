@@ -31,16 +31,16 @@ namespace vMenuClient.menus
 
             // Create the buttons and checkboxes.
             var spawnByName = new MenuItem("Spawn Vehicle By Model Name", "Enter the name of a vehicle to spawn.");
-            // var spawnInVeh = new MenuCheckboxItem("Spawn Inside Vehicle", "This will teleport you into the vehicle when you spawn it.", SpawnInVehicle);
-            // var replacePrev = new MenuCheckboxItem("Replace Previous Vehicle", "This will automatically delete your previously spawned vehicle when you spawn a new vehicle.", ReplaceVehicle);
+            var spawnInVeh = new MenuCheckboxItem("Spawn Inside Vehicle", "This will teleport you into the vehicle when you spawn it.", SpawnInVehicle);
+            var replacePrev = new MenuCheckboxItem("Replace Previous Vehicle", "This will automatically delete your previously spawned vehicle when you spawn a new vehicle.", ReplaceVehicle);
 
             // Add the items to the menu.
             if (IsAllowed(Permission.VSSpawnByName))
             {
                 menu.AddMenuItem(spawnByName);
             }
-            menu.AddMenuItem(spawnInVeh);
-            menu.AddMenuItem(replacePrev);
+            //menu.AddMenuItem(spawnInVeh);
+            //menu.AddMenuItem(replacePrev);
             #endregion
 
             #region addon cars menu
