@@ -51,6 +51,8 @@ namespace vMenuShared
             PONoRagdoll,
             PONeverWanted,
             POSetWanted,
+            POClearBlood,
+            POSetBlood,
             POIgnored,
             POStayInVehicle,
             POMaxHealth,
@@ -100,6 +102,7 @@ namespace vMenuShared
             VOUnderglow,
             VOFlashHighbeamsOnHonk,
             VODisableTurbulence,
+            VOAnchorBoat,
             VOInfiniteFuel,
             VOFlares,
             VOPlaneBombs,
@@ -324,6 +327,8 @@ namespace vMenuShared
             WPBattleRifle,
             WPSnowLauncher,
             WPHackingDevice,
+            // MP2024_01 DLC (V 3258)
+            WPStunRod,
             #endregion
 
             // Weapon Loadouts Menu
