@@ -1371,7 +1371,7 @@ namespace vMenuClient.menus
                 }
             }
 
-            var primaryColorsMenuRGB = GetMenu(new Menu("Vehicle Colors RGB", "Primary Colors RGB"));
+            var primaryColorsMenuRGB = new MenuItem("Vehicle Colors RGB", "Primary Colors RGB"));
             MenuController.AddSubmenu(primaryColorsMenu, primaryColorsMenuRGB);            
             var primaryColorsRGBBtn = new MenuItem("Primary Color RGB") { Label = "→→→" };
             primaryColorsMenu.AddMenuItem(primaryColorsRGBBtn);
@@ -1444,7 +1444,7 @@ namespace vMenuClient.menus
                     SetVehicleCustomPrimaryColour(veh.Handle, RedPrimary, GreenPrimary, BluePrimary);
                 }
             };
-            var SecondaryColorsMenuRGB = GetMenu(new Menu("Vehicle Colors RGB", "Secondary Colors RGB"));
+            var SecondaryColorsMenuRGB = new MenuItem("Vehicle Colors RGB", "Secondary Colors RGB"));
             MenuController.AddSubmenu(secondaryColorsMenu, SecondaryColorsMenuRGB);            
             var SecondaryColorsRGBBtn = new MenuItem("Secondary Color RGB") { Label = "→→→" };
             secondaryColorsMenu.AddMenuItem(SecondaryColorsRGBBtn);
