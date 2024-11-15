@@ -30,7 +30,8 @@ namespace vMenuClient.menus
         public Menu VehicleColorsMenu { get; private set; }
         public Menu DeleteConfirmMenu { get; private set; }
         public Menu VehicleUnderglowMenu { get; private set; }
-
+        public Menu RGBColorsMenu { get; private set; }
+        public RGBColors RgbColors { get; private set; }
         // Public variables (getters only), return the private variables.
         public bool VehicleGodMode { get; private set; } = UserDefaults.VehicleGodMode;
         public bool VehicleGodInvincible { get; private set; } = UserDefaults.VehicleGodInvincible;
@@ -316,6 +317,18 @@ namespace vMenuClient.menus
             {
                 menu.AddMenuItem(colorsMenuBtn);
             }
+            #region advanced colors menu
+            RgbColors = new RGBColors();
+            RGBColorsMenu = RgbColors.GetMenu();
+            MenuItem buttonRGB = new MenuItem("RGB Colors", "Advanced car color options")
+            {
+                Label = "→→→"
+            };
+            menu.AddMenuItem(buttonRGB);
+            MenuController.AddSubmenu(menu, RGBColorsMenu);
+            MenuController.BindMenuItem(menu, RGBColorsMenu, buttonRGB);
+            RGBColorsMenu.RefreshIndex();
+            #endregion
             if (IsAllowed(Permission.VOUnderglow)) // UNDERGLOW EFFECTS
             {
                 menu.AddMenuItem(underglowMenuBtn);
@@ -1279,6 +1292,15 @@ namespace vMenuClient.menus
             async void HandleItemSelect(Menu menu, MenuItem menuItem, int itemIndex)
             {
                 Vehicle veh = GetVehicle();
+                // Abandon advanced RGB colors when using default ones
+                if (RGBColors.shouldSave)
+                {
+                    RGBColors.shouldSave = false;
+                    RGBColors.currentRGB.ResetRGB();
+                    ClearVehicleCustomPrimaryColour(veh.Handle);
+                    ClearVehicleCustomSecondaryColour(veh.Handle);
+                    RgbColors.ResetGUI();
+                }
                 if (veh != null && veh.Exists() && !veh.IsDead && veh.Driver == Game.PlayerPed)
                 {
                     string rawRValue = await GetUserInput("Custom RGB - R Value (number from 0-255)", "0", 3);
