@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 
 using CitizenFX.Core;
 
@@ -776,7 +775,7 @@ namespace vMenuClient.menus
             #region Handle button presses
             menu.OnItemSelect += (sender, item, index) =>
             {
-                var ped = new Ped(Game.PlayerPed.Handle);
+                var ped = Game.PlayerPed;
                 if (item == getAllWeapons)
                 {
                     foreach (var vw in ValidWeapons.WeaponList)
